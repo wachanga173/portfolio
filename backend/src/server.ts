@@ -24,6 +24,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Trust proxy - required for Render/proxies to get correct client IP
+app.set('trust proxy', true);
+
 // Enhanced security middleware
 app.use(
   helmet({
