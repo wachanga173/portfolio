@@ -3,16 +3,6 @@ import { motion } from 'framer-motion';
 import { FaFileContract, FaShoppingCart, FaMoneyBillWave, FaUserShield, FaExclamationTriangle, FaEnvelope } from 'react-icons/fa';
 
 const Terms: React.FC = () => {
-  const content = `
-    <h2>Terms and Conditions</h2>
-    <p><strong>Effective Date:</strong> February 2, 2026</p>
-    <p><strong>Last Updated:</strong> ${new Date().toLocaleDateString()}</p>
-    
-    <p>Welcome to Peter Wachanga's Portfolio Website. These Terms and Conditions ("Terms") govern your access to and use of our website and services. By accessing or using this website, you agree to be bound by these Terms.</p>
-    
-    <h3>1. Acceptance of Terms</h3>
-    
-    <p>By accessing this portfolio website, submitting contact forms, using the chatbot, making purchases through our marketplace, or processing payments via M-Pesa, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy.</p>
     
     <p>If you do not agree with any part of these Terms, you must not use our website or services.</p>
     

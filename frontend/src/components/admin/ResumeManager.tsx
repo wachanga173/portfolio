@@ -49,23 +49,6 @@ const ResumeManager: React.FC = () => {
   // Languages
   const [languages, setLanguages] = useState<string[]>([]);
 
-  useEffect(() => {
-    fetchSections();
-  }, []);
-
-  useEffect(() => {
-    loadActiveTabData();
-  }, [activeTab, sections, loadActiveTabData]);
-
-  const fetchSections = async () => {
-    try {
-      const response = await api.get('/resume');
-      setSections(response.data);
-    } catch (error) {
-      console.error('Error fetching sections:', error);
-    }
-  };
-
   const loadActiveTabData = useCallback(() => {
     const section = sections.find((s) => s.section_name === activeTab);
     if (!section) return;
@@ -91,6 +74,23 @@ const ResumeManager: React.FC = () => {
         break;
     }
   }, [activeTab, sections]);
+
+  useEffect(() => {
+    fetchSections();
+  }, []);
+
+  useEffect(() => {
+    loadActiveTabData();
+  }, [activeTab, sections, loadActiveTabData]);
+
+  const fetchSections = async () => {
+    try {
+      const response = await api.get('/resume');
+      setSections(response.data);
+    } catch (error) {
+      console.error('Error fetching sections:', error);
+    }
+  };
 
   const handleSave = async () => {
     setLoading(true);

@@ -3,16 +3,6 @@ import { motion } from 'framer-motion';
 import { FaShieldAlt, FaLock, FaDatabase, FaUserSecret, FaEnvelope } from 'react-icons/fa';
 
 const Privacy: React.FC = () => {
-  const content = `
-    <h2>Privacy Policy</h2>
-    <p><strong>Effective Date:</strong> February 2, 2026</p>
-    <p><strong>Last Updated:</strong> ${new Date().toLocaleDateString()}</p>
-    
-    <p>This Privacy Policy describes how Peter Wachanga ("we," "us," or "our") collects, uses, and protects your personal information when you visit and interact with our portfolio website.</p>
-    
-    <h3>1. Information We Collect</h3>
-    
-    <h4>1.1 Information You Provide Directly</h4>
     <ul>
       <li><strong>Contact Form Submissions:</strong> When you submit a contact form, we collect your name, email address, phone number (optional), subject, and message content.</li>
       <li><strong>Chatbot Interactions:</strong> Messages sent through our feedback chatbot are stored with the subject "Chatbot Feedback" along with your message content.</li>
