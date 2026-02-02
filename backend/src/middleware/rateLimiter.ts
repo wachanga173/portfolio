@@ -11,6 +11,7 @@ export const paymentLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   skipSuccessfulRequests: false,
+  validate: { trustProxy: false }, // Disable validation since we handle proxy properly
 });
 
 // Strict rate limiter for authentication endpoints
@@ -24,6 +25,7 @@ export const authLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   skipFailedRequests: false, // Count all attempts
+  validate: { trustProxy: false }, // Disable validation since we handle proxy properly
 });
 
 // Brute force protection for password attempts
@@ -38,6 +40,7 @@ export const bruteForceLimiter = rateLimit({
   skipSuccessfulRequests: true, // Only count failed requests
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { trustProxy: false }, // Disable validation since we handle proxy properly
 });
 
 // Standard API rate limiter
@@ -49,6 +52,7 @@ export const apiLimiter = rateLimit({
   },
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { trustProxy: false }, // Disable validation since we handle proxy properly
 });
 
 // Aggressive limiter for M-Pesa callbacks (should only be Safaricom)
@@ -59,5 +63,6 @@ export const callbackLimiter = rateLimit({
     message: 'Too many callback requests.',
   },
   standardHeaders: false,
+  validate: { trustProxy: false }, // Disable validation since we handle proxy properly
   legacyHeaders: false,
 });
