@@ -6,8 +6,14 @@ dotenv.config();
 
 async function createAdminUser() {
   try {
-    const email = process.env.ADMIN_EMAIL || 'wachangapeter763@gmail.com';
-    const password = process.env.ADMIN_PASSWORD || 'admin123'; // Change this!
+    const email = process.env.ADMIN_EMAIL;
+    const password = process.env.ADMIN_PASSWORD;
+
+    if (!email || !password) {
+      console.error('❌ ADMIN_EMAIL and ADMIN_PASSWORD environment variables are required!');
+      console.error('Please set them in your Render dashboard or .env file');
+      process.exit(1);
+    }
 
     // Check if user already exists
     const [existing]: any = await db.query('SELECT * FROM users WHERE email = ?', [email]);

@@ -14,7 +14,7 @@ export const authenticateToken = (req: AuthRequest, res: Response, next: NextFun
   }
 
   try {
-    const secret = process.env.JWT_SECRET || 'fallback-secret';
+    const secret = process.env.JWT_SECRET!;
     const decoded = jwt.verify(token, secret) as { userId: number };
     req.userId = decoded.userId;
     next();
