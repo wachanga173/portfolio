@@ -34,7 +34,7 @@ app.use(
         scriptSrc: ["'self'"],
         fontSrc: ["'self'", 'https://fonts.gstatic.com'],
         imgSrc: ["'self'", 'data:', 'https:'],
-        connectSrc: ["'self'", process.env.FRONTEND_URL || 'http://localhost:3000'],
+        connectSrc: ["'self'", (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/$/, '')],
       },
     },
     hsts: {
@@ -47,7 +47,7 @@ app.use(
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/$/, ''),
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
